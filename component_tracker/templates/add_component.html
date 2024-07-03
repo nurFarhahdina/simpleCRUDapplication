@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Component</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}
+    </p>
+    <p>
+        {{ form.quantity.label }}<br>
+        {{ form.quantity() }}
+    </p>
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(size=64) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

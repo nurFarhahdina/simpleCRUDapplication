@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Component List</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    {% for component in components %}
+    <tr>
+        <td>{{ component.id }}</td>
+        <td>{{ component.name }}</td>
+        <td>{{ component.quantity }}</td>
+        <td>{{ component.description }}</td>
+        <td>
+            <a href="{{ url_for('update_component', id=component.id) }}">Update</a> |
+            <form action="{{ url_for('delete_component', id=component.id) }}" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
